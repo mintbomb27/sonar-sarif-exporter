@@ -1,0 +1,15 @@
+name: 'Sonar SARIF Exporter'
+description: 'Performs API request to Sonar Server and converts API response to SARIF'
+inputs:
+  SONAR_URL:
+    description: 'Sonarqube Server URL'
+    required: true
+  SONAR_TOKEN:
+    description: 'Sonarqube API Token'
+    required: true
+outputs:
+  sarif_file:
+    description: 'The SARIF you need'
+runs:
+  using: 'node20'
+  main: 'index.js'
