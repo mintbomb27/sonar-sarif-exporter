@@ -28,7 +28,7 @@ function convertToSarif(sonarqubeData) {
                 {
                     physicalLocation: {
                         artifactLocation: {
-                            uri: issue.component
+                            uri: issue.component.split(':')[1]
                         },
                         region: {
                             startLine: issue.line,
