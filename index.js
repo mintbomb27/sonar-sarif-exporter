@@ -41,8 +41,7 @@ function convertToSarif(sonarqubeData) {
             properties: {
                 severity: issue.severity,
                 status: issue.status
-            },
-            occurrenceAt: issue.creationDate
+            }
         });
     });
 
