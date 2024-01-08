@@ -51,12 +51,13 @@ function convertToSarif(sonarqubeData) {
 
 const SONAR_URL = core.getInput("SONAR_URL");
 const SONAR_TOKEN = core.getInput("SONAR_TOKEN");
-fetch(`${SONAR_URL}/api/issues/search/`, {
+fetch(`${SONAR_URL}/api/issues/search`, {
     method: "GET",
     headers: {
         "Authorization": `Bearer ${SONAR_TOKEN}`
     }
-}).then((response) => {
+}).then(response => response.json())
+.then((response) => {
     console.log(response);
     let sarifOutput = convertToSarif(response);
     fs.writeFileSync('output.sarif', JSON.stringify(sarifOutput, null, 2));
